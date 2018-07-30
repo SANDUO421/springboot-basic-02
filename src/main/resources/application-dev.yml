@@ -1,0 +1,73 @@
+# modified tomcat port and visit path
+server: 
+  port: 8888
+#  address: 192.168.35.2
+ 
+#jpa 配置
+
+spring:
+  application:
+    name: springboot-basic-study02
+  datasource: #数据源信息
+#    schema: classpath:/data.sql
+    sql-script-encoding: utf-8
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@192.168.35.33:1521:xe
+    username: springboot
+    password: sanduo
+#    type: com.alibaba.druid.pool.DruidDataSource
+    tomcat:
+      max-active: 6000
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      validation-query: select 1 from dual
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      
+#    driver-class-name: oracle.jdbc.OracleDriver
+  jpa: #配置jpa
+    hibernate: 
+      ddl-auto: update #更新表结构
+    database: ORACLE
+    show-sql: true #显示sql
+    properties:
+      hibernate: 
+#         dialect: org.hibernate.dialect.Oracle10gDialect  #方言错了就会导致分页错误
+         dialect: org.hibernate.dialect.Oracle10gDialect
+    generate-ddl: true
+  jackson: #让控制台输出的json字符串更好看
+    serialization:
+      indent-output: true
+
+  data:
+    rest:
+      base-path: /api
+    mongodb:  #mongodb
+      uri: mongodb://192.168.35.33:27017
+      database: admin
+      username: root
+      password: sanduo@123
+  redis:
+    database: 0
+    host: 192.168.35.33
+    port: 6379
+#    password: 
+    
+     
+    
+#hibernate: 
+#  connection:
+#    username: springboot
+#    password: sanduo
+ 
+# profile log default logback
+
+logging:
+  file: logs/log.log
+  level: 
+    org.springframework.web: INFO
+      
+    
+

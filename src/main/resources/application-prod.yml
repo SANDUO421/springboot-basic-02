@@ -1,0 +1,19 @@
+# modified tomcat port and visit path
+server: 
+  port: 9999
+#  servlet:
+#    context-path: /helloboot
+
+# defined property
+author: 
+  name: sanduo
+  age: 25
+# profile log default logback
+
+logging:
+  file: logs/log.log
+  level: 
+    org.springframework.web: DEBUG
+      
+    
+

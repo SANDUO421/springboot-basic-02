@@ -1,0 +1,25 @@
+# modified tomcat port and visit path
+#server: 
+#  port: 8080
+#  servlet:
+#    context-path: /helloboot
+
+# profile 
+
+spring:
+  profiles:
+    active: 
+#    - prod
+     - dev
+
+
+# profile log default logback
+
+#logging:
+#  file: logs/log.log
+#  level: 
+#    org.springframework.web: DEBUG
+
+# 查看已启用的自动配置 ,默认为false   
+#debug: true
+
